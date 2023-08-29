@@ -1,12 +1,12 @@
 package com.centralkafka.kafkautils.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
 @Data
-@Configuration
+@Component
 public class KafkaConfig {
 	
 	@Value(value = "${spring.kafka.consumer.dto:default}")
@@ -18,7 +18,7 @@ public class KafkaConfig {
 	@Value(value = "${spring.kafka.consumer.group-id:default}")
 	private String kafkaConsumerGroupId;
 	
-	@Value(value = "${spring.kafka.bootstrap-servers:default")
+	@Value(value = "${spring.kafka.bootstrap-servers:default}")
 	private String bootstrapServers;
 	
 	@Value(value = "${spring.kafka.template.default-topic:default}")
