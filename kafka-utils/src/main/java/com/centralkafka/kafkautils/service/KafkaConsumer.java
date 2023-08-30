@@ -1,6 +1,5 @@
 package com.centralkafka.kafkautils.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 
 import com.centralkafka.kafkautils.config.KafkaConfig;
@@ -10,8 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class KafkaConsumer<T> {
 	
-	@Autowired
 	private KafkaConfig kafkaConfig;
+	
+	public KafkaConsumer(KafkaConfig kafkaConfig) {
+		this.kafkaConfig = kafkaConfig;
+	}
 	
 	@KafkaListener(topics = "#{__listener.kafkaConsumerTopicName()}")
 	public void consume(T data) {

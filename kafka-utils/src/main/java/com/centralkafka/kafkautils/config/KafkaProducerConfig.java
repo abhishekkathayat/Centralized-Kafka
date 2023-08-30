@@ -16,8 +16,11 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 @Configuration
 public class KafkaProducerConfig<T> {
 	
-	@Autowired
 	private KafkaConfig kafkaConfig;
+	
+	public KafkaProducerConfig(KafkaConfig kafkaConfig) {
+		this.kafkaConfig = kafkaConfig;
+	}
 	
 	@Bean
 	public ProducerFactory<String, T> producerFactory() {

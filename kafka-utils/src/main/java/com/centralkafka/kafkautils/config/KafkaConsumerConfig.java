@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
@@ -16,8 +15,11 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 @Configuration
 public class KafkaConsumerConfig<T> {
 	
-	@Autowired
 	private KafkaConfig kafkaConfig;
+	
+	public KafkaConsumerConfig(KafkaConfig kafkaConfig) {
+		this.kafkaConfig = kafkaConfig;
+	}
 	
 	@Bean
 	public ConsumerFactory<String, T> consumerFactory() {

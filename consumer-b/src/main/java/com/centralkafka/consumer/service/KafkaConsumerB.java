@@ -17,6 +17,7 @@ public class KafkaConsumerB extends KafkaConsumer<ConsumerBDTO> {
 	private KafkaProducer<ConsumerCDTO> kafkaProducer;
 	
 	public KafkaConsumerB(KafkaConfig kafkaConfig, KafkaProducer<ConsumerCDTO> kafkaProducer) {
+		super(kafkaConfig);
 		this.kafkaConfig = kafkaConfig;
 		this.kafkaProducer = kafkaProducer;
 	}
