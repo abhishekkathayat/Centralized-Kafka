@@ -1,6 +1,5 @@
 package com.centralkafka.producer.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +13,14 @@ import com.centralkafka.kafkautils.service.KafkaProducer;
 @RequestMapping("/producer")
 public class ProducerController {
 	
-	@Autowired
 	private KafkaConfig kafkaConfig;
 	
-	@Autowired
 	private KafkaProducer<ConsumerADTO> kafkaProducer;
+	
+	public ProducerController(KafkaConfig kafkaConfig, KafkaProducer<ConsumerADTO> kafkaProducer) {
+		this.kafkaConfig = kafkaConfig;
+		this.kafkaProducer = kafkaProducer;
+	}
 	
 	@GetMapping("/initiate")
 	public String initiateProcess() {

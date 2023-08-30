@@ -1,6 +1,5 @@
 package com.centralkafka.consumer.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.centralkafka.kafkautils.config.KafkaConfig;
@@ -13,11 +12,14 @@ import com.centralkafka.kafkautils.service.KafkaProducer;
 @Service
 public class KafkaConsumerA extends KafkaConsumer<ConsumerADTO> {
 	
-	@Autowired
 	private KafkaConfig kafkaConfig;
 	
-	@Autowired
 	private KafkaProducer<ConsumerBDTO> kafkaProducer;
+	
+	public KafkaConsumerA(KafkaConfig kafkaConfig, KafkaProducer<ConsumerBDTO> kafkaProducer) {
+		this.kafkaConfig = kafkaConfig;
+		this.kafkaProducer = kafkaProducer;
+	}
 	
 	public void handleOperation(ConsumerADTO consumerADTO) {
 		ConsumerBDTO consumerBDTO = new ConsumerBDTO();
