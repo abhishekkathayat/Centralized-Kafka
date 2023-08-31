@@ -21,8 +21,8 @@ Follow the below mentioned steps to get started:
 - Add `kafka-utils` as a dependency to you Spring Boot project.
 - Configure Kafka properties in your application.properties.
 - Extend utility class `KafkaConsumer` to implement the Consumer Functionality.
-- Provide the implementation for the abstract function `handleOperation(data)`. This function server as the designated space where you can define the business logic that needs to be executed upon consuming a message.
-- Inject `KafkaProducer` dependency by using either Field Injection/Autowiring or Constructor Injection, and call the `publish(topic, data)` function to publish a message.
+- Provide the implementation for the abstract method `handleOperation(data)`. This method serves as the designated space where you can define the business logic that needs to be executed upon consuming a message.
+- Inject `KafkaProducer` dependency by using either Field Injection/Autowiring or Constructor Injection, and call the `publish(topic, data)` method to publish a message.
 
 You can also refer to `producer`, `consumer-a`, `consumer-b` and `consumer-c` services to get started. When using these services for testing, once all the services are up and running call the below mentioned endpoint using Postman or Browser:
 ```
