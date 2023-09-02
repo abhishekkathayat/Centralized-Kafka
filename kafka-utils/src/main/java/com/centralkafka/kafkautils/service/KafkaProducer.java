@@ -22,7 +22,9 @@ public class KafkaProducer<T> {
 					log.info("Message Published to Topic: {} and Partition: {} with Offset: {}",
 							kafkaTopic, result.getRecordMetadata().partition(), result.getRecordMetadata().offset());
 				}
+				else {
+					log.error("Message publish failed with error: {}", exception.getMessage());
+				}
 			});
 	}
-
 }
